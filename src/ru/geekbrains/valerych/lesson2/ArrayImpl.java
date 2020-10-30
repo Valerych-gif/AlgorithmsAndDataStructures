@@ -19,6 +19,11 @@ public class ArrayImpl<E extends Comparable<? super E>> implements Array<E> {
         this.data = (E[]) new Comparable[initialCapacity];
     }
 
+    public ArrayImpl(ArrayImpl<E> array){
+        this.data = Arrays.copyOf(array.getData(), array.getData().length);
+        this.size = array.size();
+    }
+
 
     // O(1) -> O(n)
     @Override
@@ -182,5 +187,9 @@ public class ArrayImpl<E extends Comparable<? super E>> implements Array<E> {
 
     private int calculateNewLength() {
         return size > 0 ? size * 2 : 1;
+    }
+
+    public E[] getData() {
+        return data;
     }
 }
