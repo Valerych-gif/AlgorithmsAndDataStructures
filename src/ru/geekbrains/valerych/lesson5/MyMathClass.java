@@ -18,6 +18,10 @@ public class MyMathClass {
     }
 
     private static int exp(int number, int n) {
+        if (n<0){
+            throw new IllegalArgumentException("Степень, в которую возводится число, должна быть положительной");
+        }
+
         if (n == 1) {
             return number;
         }
