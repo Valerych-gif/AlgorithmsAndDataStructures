@@ -1,0 +1,29 @@
+package ru.geekbrains.valerych.lesson6;
+
+import java.util.function.Consumer;
+
+public interface Tree<E extends Comparable<? super E>> {
+
+    enum TraverseMode {
+        IN_ORDER,
+        PRE_ORDER,
+        POST_ORDER,
+    }
+
+    boolean add(E value);
+
+    boolean contains(E value);
+
+    boolean remove(E value);
+
+    boolean isEmpty();
+
+    int size();
+
+    void traverse(TraverseMode mode, Consumer<E> action);
+
+    boolean isBalanced();
+
+    void display();
+
+}
